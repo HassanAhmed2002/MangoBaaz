@@ -1,0 +1,335 @@
+{% extends "base_template.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+{% endblock stylesheets %}
+
+{% block bodyContent %}
+
+<!-- Title page -->
+<section class="how-overlay2 bg-img1" style="background-image: url(/images/fruits.png);">
+	<div class="container">
+		<div class="txt-center p-t-160 p-b-165">
+			<h2 class="txt-l-101 cl0 txt-center p-b-14 respon1">
+				shop
+			</h2>
+
+			<span class="txt-m-201 cl0 flex-c-m flex-w">
+				<a href="/" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
+					Home&nbsp
+				</a>
+				<span>/&nbsp</span>
+				<a href="/contact" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
+					Contact
+				</a>
+			</span>
+		</div>
+	</div>
+</section>
+
+<!-- Content page -->
+<div class="bg0 p-t-85 p-b-95">
+	<div class="container">
+		<div class="flex-w flex-r-m p-b-45 flex-row-rev">
+			<div class="flex-w flex-m p-tb-8">
+				<!-- <div class="rs1-select2 bg0 size-w-52 bo-all-1 bocl15 m-tb-7 m-r-15">
+					<select class="js-select2" name="sort">
+						<option>Sort by popularity</option>
+						<option>Sort by best sell</option>
+						<option>Sort by special</option>
+					</select>
+					<div class="dropDownSelect2"></div>
+				</div> -->
+
+				<div class="flex-w flex-m m-tb-7">
+					<button class="dis-block lh-00 pos-relative how-icon1 m-r-15 js-show-list">
+						<img class="icon-main trans-04" src="/images/icons/icon-menu-list.png" alt="ICON">
+						<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-menu-list1.png" alt="ICON">
+					</button>
+
+					<button class="dis-block lh-00 pos-relative how-icon1 menu-active js-show-grid">
+						<img class="icon-main trans-04" src="/images/icons/icon-grid.png" alt="ICON">
+						<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-grid1.png" alt="ICON">
+					</button>
+				</div>
+			</div>
+
+			<!-- <span class="txt-s-101 cl9 m-r-30 size-w-53">
+					Showing 1–12 of 23 results
+				</span> -->
+		</div>
+
+		<!-- Shop grid -->
+		<div class="shop-grid">
+			<div class="row">
+
+				{% for product in products %}
+				<!-- - -->
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-30">
+					<!-- Block1 -->
+					<div class="block1">
+						<div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
+
+							<img  height="353px" src="{{product.images[0]}}" alt="IMG">
+
+							<div class="block1-content flex-col-c-m p-b-46">
+								<a href="shop/{{product.id}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+									<a href="shop/{{product.id}}" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+										{{product.name}}
+									</a>
+
+									<span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
+										Rs. {{product.price}}
+									</span>
+
+									<div class="block1-wrap-icon flex-c-m flex-w trans-05">
+										<a href="shop/{{product.id}}" class="block1-icon flex-c-m wrap-pic-max-w">
+											<img src="/images/icons/icon-view.png" alt="ICON">
+										</a>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				{% endfor %}
+
+								
+		<!-- Shop list -->
+		<div class="shop-list dis-none">
+		<!-- <div class="shop-list "> -->
+			
+
+				{% for product in products %}
+
+			<div class="row p-b-30">
+				<div class="col-sm-5 col-md-4 col-lg-3">
+					<a href="product-single.html" class="wrap-pic-w bo-all-1 bocl12 hov8 trans-04">
+						<img src="{{product.image}}" alt="PRODUCT">
+					</a>
+				</div>
+
+				<div class="col-sm-7 col-md-8 col-lg-9">
+					<div class="p-t-5 p-b-20">
+						<div class="flex-w flex-sb-m">
+							<a href="product-single.html" class="txt-m-120 cl3 hov-cl10 trans-04 m-r-20 js-name1">
+								{{product.name}}
+							</a>
+
+							<a href="wishlist.html" class="lh-00 pos-relative how-icon1 m-tb-15 js-addwish1">
+								<img class="icon-main trans-04" src="/images/icons/icon-heart-color.png" alt="ICON">
+								<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-heart-color2.png" alt="ICON">
+								<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-heart-color2.png" alt="ICON">
+							</a>
+						</div>
+
+						<span class="txt-m-117 cl9">
+							Rs. {{product.price}}
+						</span>
+
+						<p class="txt-s-101 cl6 p-t-18">
+							{{product.description}}
+						</p>
+
+						<div class="flex-w p-t-29">
+							<button class="flex-c-m txt-s-103 cl0 bg10 size-a-2 hov-btn2 trans-04 js-addcart1">
+								Add to cart
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% endfor %}
+
+			<div class="row p-b-30">
+				<div class="col-sm-5 col-md-4 col-lg-3">
+					<a href="product-single.html" class="wrap-pic-w bo-all-1 bocl12 hov8 trans-04">
+						<img src="/images/product-39.jpg" alt="PRODUCT">
+					</a>
+				</div>
+
+				<div class="col-sm-7 col-md-8 col-lg-9">
+					<div class="p-t-5 p-b-20">
+						<div class="flex-w flex-sb-m">
+							<a href="product-single.html" class="txt-m-120 cl3 hov-cl10 trans-04 m-r-20 js-name1">
+								Cauliflower
+							</a>
+
+							<a href="wishlist.html" class="lh-00 pos-relative how-icon1 m-tb-15 js-addwish1">
+								<img class="icon-main trans-04" src="/images/icons/icon-heart-color.png" alt="ICON">
+								<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-heart-color2.png" alt="ICON">
+								<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-heart-color2.png" alt="ICON">
+							</a>
+						</div>
+
+						<span class="txt-m-117 cl9">
+							19$
+						</span>
+
+						<p class="txt-s-101 cl6 p-t-18">
+							Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+							consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+							dolorem ipsum quia dolor sit amet.=======Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+							odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
+							porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+						</p>
+
+						<div class="flex-w p-t-29">
+							<button class="flex-c-m txt-s-103 cl0 bg10 size-a-2 hov-btn2 trans-04 js-addcart1">
+								Add to cart
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row p-b-30">
+				<div class="col-sm-5 col-md-4 col-lg-3">
+					<a href="product-single.html" class="wrap-pic-w bo-all-1 bocl12 hov8 trans-04">
+						<img src="/images/product-40.jpg" alt="PRODUCT">
+					</a>
+				</div>
+
+				<div class="col-sm-7 col-md-8 col-lg-9">
+					<div class="p-t-5 p-b-20">
+						<div class="flex-w flex-sb-m">
+							<a href="product-single.html" class="txt-m-120 cl3 hov-cl10 trans-04 m-r-20 js-name1">
+								Vegetable
+							</a>
+
+							<a href="wishlist.html" class="lh-00 pos-relative how-icon1 m-tb-15 js-addwish1">
+								<img class="icon-main trans-04" src="/images/icons/icon-heart-color.png" alt="ICON">
+								<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-heart-color2.png" alt="ICON">
+								<img class="ab-t-l icon-hov trans-04" src="/images/icons/icon-heart-color2.png" alt="ICON">
+							</a>
+						</div>
+
+						<span class="txt-m-117 cl9">
+							23$
+						</span>
+
+						<p class="txt-s-101 cl6 p-t-18">
+							Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
+							consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur adipisci velit, sed quia non
+							numquam eius modi tempora incidunt ut labore et.=======Quis autem vel eum iure reprehenderit qui in ea
+							voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
+							nulla pariatur adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et.
+						</p>
+
+						<div class="flex-w p-t-29">
+							<button class="flex-c-m txt-s-103 cl0 bg10 size-a-2 hov-btn2 trans-04 js-addcart1">
+								Add to cart
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+</div>
+
+
+<!-- Subscribe -->
+<section class="sec-subscribe bg13 p-t-65 p-b-65">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 p-tb-15">
+				<div class="h-full flex-col-m">
+					<h4 class="txt-m-110 cl3 p-b-4">
+						Subscribe Newsletter.
+					</h4>
+
+					<p class="txt-s-101 cl6">
+						Get e-mail updates about our latest shop and special offers.
+					</p>
+				</div>
+			</div>
+
+			<div class="col-md-7 p-tb-15">
+				<form class="flex-w flex-m h-full">
+					<input class="cs10a size-a-6 txt-s-106 cl6 plh0 p-rl-30 w-full-sm" type="text" name="email"
+						placeholder="Your email address">
+					<button class="cs10b bg10 size-a-5 txt-s-107 cl0 p-rl-15 trans-04 hov-btn2 mt-4 mt-sm-0">
+						Subscribe
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg12">
+	<div class="container">
+
+
+		<div class="flex-w flex-sb-m bo-t-1 bocl14 p-tb-14">
+			<span class="txt-s-101 cl9 p-tb-10 p-r-29">
+				Copyright © 2017 Organive. All rights reserved.
+			</span>
+
+			<div class="flex-w flex-m">
+				<a href="#" class="m-r-29 m-tb-10">
+					<img src="/images/icons/icon-pay-01.png" alt="ICON-PAY">
+				</a>
+
+				<a href="#" class="m-r-29 m-tb-10">
+					<img src="/images/icons/icon-pay-02.png" alt="ICON-PAY">
+				</a>
+
+				<a href="#" class="m-r-29 m-tb-10">
+					<img src="/images/icons/icon-pay-03.png" alt="ICON-PAY">
+				</a>
+
+				<a href="#" class="m-r-29 m-tb-10">
+					<img src="/images/icons/icon-pay-04.png" alt="ICON-PAY">
+				</a>
+
+				<a href="#">
+					<img src="/images/icons/icon-pay-05.png" alt="ICON-PAY">
+				</a>
+			</div>
+		</div>
+
+</footer>
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<script src="vendor/slick/slick.min.js"></script>
+<script src="js/slick-custom.js"></script>
+<script src="vendor/parallax100/parallax100.js"></script>
+<script src="vendor/lightbox2/js/lightbox.min.js"></script>
+<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="vendor/sweetalert/sweetalert.min.js"></script>
+<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="vendor/noui/nouislider.min.js"></script>
+<script src="js/main.js"></script>
+
+{% endblock scripts %}
